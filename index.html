@@ -13,6 +13,40 @@
             overflow-x: hidden;
         }
 
+        /* ✨ SAO風システムメッセージBOX */
+.sao-message-box {
+    position: relative;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(0, 40, 80, 0.7) 0%, rgba(0, 10, 30, 0.8) 100%);
+    border: 1px solid #00f2fe;
+    border-radius: 0 20px 0 20px; /* SAOっぽい少し角を落としたデザイン */
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(0, 242, 254, 0.1);
+    backdrop-filter: blur(8px);
+    margin-top: 10px;
+}
+
+.sao-message-content {
+    color: #e0f7ff;
+    font-family: "Sawarabi Mincho", "Yu Mincho", "MS Mincho", serif; /* 明朝体指定 */
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
+    white-space: pre-wrap; /* 改行を有効にする */
+}
+
+.sao-label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #000;
+    color: #00f2fe;
+    padding: 2px 10px;
+    font-size: 10px;
+    border: 1px solid #00f2fe;
+    letter-spacing: 2px;
+}
+
         /* ✨ Google検索窓の魔法スタイル */
 .google-search-container {
     margin-top: -10px;
@@ -177,71 +211,111 @@
     <div class="main-layout">
         <div class="left-content">
             <div style="font-size: 12px; margin-bottom: 20px; line-height: 1.8;">
-                [INDEX]<br>
-                - <a href="#section1" style="color:#00f2fe;">BUSINESS WEBSITE</a><br>
-                - <a href="#section2" style="color:#00f2fe;">WORK WEBSITE (CONVERTER)</a><br>
-                - <a href="#section3" style="color:#00f2fe;">WORK WEBSITE (MATERIAL)</a>
+                [SOCIAL NETWORKING SERVICE]<br>
+                - <a href="#section1" style="color:#00f2fe;">ALL IN ONE</a><br>
+                - <a href="#section2" style="color:#00f2fe;">IMAGE AND VIDEO</a><br>
+                - <a href="#section3" style="color:#00f2fe;">COMMUNITY</a><br>
+                - <a href="#section4" style="color:#00f2fe;">REAL-TIME STREAMING</a><br>
+                - <a href="#section5" style="color:#00f2fe;">TECHNOLOGY</a><br>
+                - <a href="#section6" style="color:#00f2fe;">COOkING</a><br>
+                - <a href="#section7" style="color:#00f2fe;">HOBBIES</a><br>
             </div>
 
-            <!-- BUSINESS セクション -->
-            <div class="section-title" id="section1">BUSINESS WEBSITE(Create)</div>
+            <!-- ALL IN ONE セクション -->
+            <div class="section-title" id="section1">ALL IN ONE</div>
             <div class="gallery">
-                <a href="https://www.dlsite.com/circle/circle/webup" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo1.jpg">
+                <a href="https://x.com/home" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo1.jpg">
                 </a>
-                <a href="https://dojin.dmm.co.jp/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo2.jpg">
+                <a href="https://www.threads.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo2.jpg">
                 </a>
-                <a href="https://manage.booth.pm/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo3.jpg">
+                <a href="https://www.facebook.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo3.jpg">
+                </a>               
+            </div> 
+
+            <!-- IMAGE AND VIDEO セクション -->
+            <div class="section-title" id="section2">IMAGE AND VIDEO</div>
+            <div class="gallery">
+                <a href="https://www.youtube.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo4.jpg">
                 </a>
-                <a href="https://creator.line.me/my/UCustGV8U48Ytg8G/sticker/?status=all&query=&page=1" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo4.jpg">
+                <a href="https://www.instagram.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo5.jpg">
                 </a>
-                <a href="https://circle.melonbooks.co.jp/?transactionid=0ed39d62a3f592550c92275eff5537436cd30947" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo5.jpg">
+                <a href="https://www.tiktok.com/foryou" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo6.jpg">
                 </a>
+                <a href="https://linevoom.line.me/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo7.jpg">
+                </a>
+                <a href="https://www.nicovideo.jp/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo8.jpg">
+                </a>
+            </div>
+
+            <!-- TEXT セクション  -->
+            <div class="section-title" id="section3">COMMUNITY</div>
+            <div class="gallery">
+                <a href="https://discord.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo9.jpg">
+                </a>
+                <a href="https://www.reddit.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo10.jpg">
+                </a>
+            </div>
+
+            <!-- REAL-TIME STREAMING -->
+            <div class="section-title" id="section4">REAL-TIME STREAMING</div>
+            <div class="gallery">
+                <a href="https://www.pococha.com/ja/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo11.jpg">
+               </a>
+               <a href="https://17.live/ja/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo12.jpg">
+               </a>
+               <a href="https://www.bigo.tv/ja/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo13.jpg">
+                </a>
+            </div>
+
+            <!-- TECHNOLOGY セクション  -->
+            <div class="section-title" id="section5">TECHNOLOGY</div>
+            <div class="gallery">
+                <a href="https://github.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo14.jpg">
+                </a>
+                <a href="https://ja.stackoverflow.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo15.jpg">
+                </a>
+            </div>
+
+            <!-- COOkING セクション -->
+            <div class="section-title" id="section6">COOkING</div>
+            <div class="gallery">
+                <a href="https://snapdish.jp/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo16.jpg">
+                </a>
+                <a href="https://www.kurashiru.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo17.jpg">
+                </a>
+            </div>
+
+            <!-- HOBBIES セクション  -->
+            <div class="section-title" id="section7">HOBBIES</div>
+            <div class="gallery">
                 <a href="https://www.pixiv.net/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo6.jpg">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo18.jpg">
                 </a>
-                <a href="https://www.fanbox.cc/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo7.jpg">
+                <a href="https://soundcloud.com/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo19.jpg">
                 </a>
-                <a href="https://syosetu.com/user/top/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo8.jpg">
-                </a>
-                 <a href="https://mitemin.net/user/top/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo9.jpg">
-                </a>
-                <a href="https://studio.youtube.com/channel/UCTSKEdY3sRnJUxmxIfkFR_w" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo10.jpg">
-                </a>
-                <a href="https://play.google.com/console/u/0/developers/8366224141989450534/policy-center" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo11.jpg">
-                </a>
-            </div> <!-- 🌸 ここでgalleryを閉じます -->
-
-            <!-- WORK セクション (CONVERTER) -->
-            <div class="section-title" id="section2">ACCOUNTING MANAGEMENT</div>
-            <div class="gallery">
-                <a href="https://secure.freee.co.jp/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo18.jpg">
+                <a href="https://vrchat.com/home/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/web/photo20.jpg">
                 </a>
             </div>
 
-            <!-- WORK セクション (MATERIAL) -->
-            <div class="section-title" id="section3">WORK WEBSITE (MATERIAL)</div>
-            <div class="gallery">
-                <a href="https://soundeffect-lab.info/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo15.jpg">
-                </a>
-                <a href="https://pixta.jp/" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo16.jpg">
-                </a>
-                <a href="https://www.cgtrader.com/ja" target="_blank" class="icon-link">
-                    <img src="https://kennew0922-lgtm.github.io/launcher/photo17.jpg">
-                </a>
-            </div>
         </div>
 
         <!-- 右側：Google検索など -->
@@ -255,7 +329,7 @@
     </div>
             
             <!-- 🌸 検索エンジン　-->
-              <div class="section-title" id="section10">WEB SEARCH ENGINE</div>
+              <div class="section-title" id="section10">TECHNOLOGY</div>
             <div class="utility-launcher">
                 <!-- ここにウェザーニュースやホテル予約のアイコンを並べます🌸 -->
                 <a href="https://www.google.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon1.png" style="width:35px;height:35px;" alt="Weather"></a>
@@ -267,11 +341,19 @@
                 <a href="https://search.brave.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon7.png" style="width:35px;height:35px;" alt="Map"></a>
             </div>
 
-            <!-- カレンダー -->
-            <iframe src="https://calendar.google.com/calendar/embed?src=kennew0922%40gmail.com&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0" 
-                    style="border:1px solid rgba(0,242,254,0.3); width:100%; height:380px;" frameborder="0" scrolling="no"></iframe>
-        </div>
-    </div>
+<!-- リテラシー　-->
+<div class="section-title">SYSTEM MESSAGE</div>
+            <div class="sao-message-box">
+                <div class="sao-label">DIGITAL LITERACV</div>
+                <div class="sao-message-content">Trust is a virtue, yet blind belief is a folly.
+Words may mislead, and even AI can falter.
+Never settle for a single view; verify every shadow.
+Truth is a faint light, found only by those who keep seeking.
+Do not let your mind go silent.
+To doubt with reason, and to love with a human heart—
+That is the only way to remain yourself in this world.
+_</div>
+            </div>
 
 
 </body>
