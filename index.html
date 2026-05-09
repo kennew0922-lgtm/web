@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Socrarius HP LINK</title>
+    <style>
+        body {
+            background: rgba(0, 5, 15, 0.9);
+            color: #e0f7ff;
+            font-family: 'Consolas', monospace;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* ✨ Google検索窓の魔法スタイル */
+.google-search-container {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    padding: 10px;
+    background: rgba(0, 105, 217, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+}
+
+.search-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 242, 254, 0.5);
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #e0f7ff;
+    font-family: 'Consolas', monospace;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+.search-button {
+    background: rgba(0, 105, 217, 0.4);
+    border: 1px solid #00f2fe;
+    color: #00f2fe;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12px;
+}
+
+.search-button:hover {
+    background: rgba(0, 242, 254, 0.2);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+}
+
+        /* 🌸 上部固定バナー */
+        .system-banner {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: 40px;
+            background: rgba(0, 105, 217, 0.3);
+            border-bottom: 1px solid #00f2fe;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 🌸 左右レイアウトコンテナ */
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .left-content {
+            flex: 4;
+            overflow-y: auto;
+            height: calc(100vh - 80px);
+        }
+
+        .right-content {
+            flex: 6;
+            position: sticky;
+            top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* 🌸 お天気エリア（横配置） */
+        .weather-panel {
+            background: rgba(0, 170, 255, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .weather-item { text-align: center; }
+        .weather-city { font-size: 10px; color: #00f2fe; opacity: 0.8; margin-bottom: 4px; }
+        .weather-info { font-size: 18px; font-weight: bold; }
+
+        /* 🌸 実用ランチャー（カレンダー上部） */
+        .utility-launcher {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+            margin-top: -15px;
+            gap: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 242, 254, 0.15);
+        }
+
+        /* カレンダーフィルター（既存） */
+        .right-content iframe {
+            filter: invert(90%) hue-rotate(180deg) brightness(1.1) contrast(0.9);
+            border-radius: 8px;
+            background-color: #000;
+        }
+
+        /* --- 既存のギャラリー等のスタイルは維持 --- */
+        .section-title {
+            background: #000; color: #00f2fe; padding: 10px 20px;
+            margin: 20px 0 15px 0; font-size: 12px; font-weight: bold;
+            border-left: 5px solid #00f2fe; letter-spacing: 3px;
+        }
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px; margin-bottom: 30px; padding: 15px;
+            border: 1px solid rgba(0, 242, 254, 0.15); background: rgba(255, 255, 255, 0.02);
+        }
+/* 🌸 アイコンリンクの基本設定と光の魔法 */
+        .icon-link img {
+            width: 55px; height: 55px; object-fit: cover;
+            border: 1px solid rgba(0, 242, 254, 0.3); 
+            border-radius: 4px;
+            transition: all 0.3s ease; /* 変化をなめらかにする魔法 🌸 */
+            cursor: pointer;
+        }
+
+        /* 🌸 マウスを乗せた時の反応（ホバー） */
+        .icon-link img:hover {
+            transform: translateY(-2px); /* 若干上に浮き上がります 🌸 */
+            border-color: #00f2fe; /* 縁の色をはっきりさせます 🌸 */
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.8); /* 淵に光を付与します 🌸 */
+            filter: brightness(1.2); /* アイコン自体も少し明るくします 🌸 */
+        }
+
+        /* 実用ランチャー側の小さいアイコンも同様に光らせる設定 */
+        .utility-launcher .icon-link img {
+            width: 35px; height: 35px;
+        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #345485; }
+    </style>
+</head>
+<body>
+
+    <div class="system-banner">IN PURSUIT OF THE 1% TRUTH</div>
+
+    <div class="main-layout">
+        <div class="left-content">
+            <div style="font-size: 12px; margin-bottom: 20px; line-height: 1.8;">
+                [INDEX]<br>
+                - <a href="#section1" style="color:#00f2fe;">BUSINESS WEBSITE</a><br>
+                - <a href="#section2" style="color:#00f2fe;">WORK WEBSITE (CONVERTER)</a><br>
+                - <a href="#section3" style="color:#00f2fe;">WORK WEBSITE (MATERIAL)</a>
+            </div>
+
+            <!-- BUSINESS セクション -->
+            <div class="section-title" id="section1">BUSINESS WEBSITE(Create)</div>
+            <div class="gallery">
+                <a href="https://www.dlsite.com/circle/circle/webup" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo1.jpg">
+                </a>
+                <a href="https://dojin.dmm.co.jp/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo2.jpg">
+                </a>
+                <a href="https://manage.booth.pm/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo3.jpg">
+                </a>
+                <a href="https://creator.line.me/my/UCustGV8U48Ytg8G/sticker/?status=all&query=&page=1" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo4.jpg">
+                </a>
+                <a href="https://circle.melonbooks.co.jp/?transactionid=0ed39d62a3f592550c92275eff5537436cd30947" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo5.jpg">
+                </a>
+                <a href="https://www.pixiv.net/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo6.jpg">
+                </a>
+                <a href="https://www.fanbox.cc/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo7.jpg">
+                </a>
+                <a href="https://syosetu.com/user/top/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo8.jpg">
+                </a>
+                 <a href="https://mitemin.net/user/top/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo9.jpg">
+                </a>
+                <a href="https://studio.youtube.com/channel/UCTSKEdY3sRnJUxmxIfkFR_w" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo10.jpg">
+                </a>
+                <a href="https://play.google.com/console/u/0/developers/8366224141989450534/policy-center" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo11.jpg">
+                </a>
+            </div> <!-- 🌸 ここでgalleryを閉じます -->
+
+            <!-- WORK セクション (CONVERTER) -->
+            <div class="section-title" id="section2">ACCOUNTING MANAGEMENT</div>
+            <div class="gallery">
+                <a href="https://secure.freee.co.jp/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo18.jpg">
+                </a>
+            </div>
+
+            <!-- WORK セクション (MATERIAL) -->
+            <div class="section-title" id="section3">WORK WEBSITE (MATERIAL)</div>
+            <div class="gallery">
+                <a href="https://soundeffect-lab.info/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo15.jpg">
+                </a>
+                <a href="https://pixta.jp/" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo16.jpg">
+                </a>
+                <a href="https://www.cgtrader.com/ja" target="_blank" class="icon-link">
+                    <img src="https://kennew0922-lgtm.github.io/launcher/photo17.jpg">
+                </a>
+            </div>
+        </div>
+
+        <!-- 右側：Google検索など -->
+        <div class="right-content">
+            <div class="section-title" id="section10">SEARCH ON GOOGLE</div>
+            <div class="google-search-container">
+        <form action="https://www.google.com/search" method="get" target="_blank" class="search-box">
+            <input type="text" name="q" class="search-input" placeholder="Google Search..." required>
+            <button type="submit" class="search-button">SEARCH</button>
+        </form>
+    </div>
+            
+            <!-- 🌸 検索エンジン　-->
+              <div class="section-title" id="section10">WEB SEARCH ENGINE</div>
+            <div class="utility-launcher">
+                <!-- ここにウェザーニュースやホテル予約のアイコンを並べます🌸 -->
+                <a href="https://www.google.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon1.png" style="width:35px;height:35px;" alt="Weather"></a>
+                <a href="https://www.bing.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon2.png" style="width:35px;height:35px;" alt="Travel"></a>
+                <a href="https://search.yahoo.co.jp/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon3.png" style="width:35px;height:35px;" alt="Map"></a>
+                <a href="https://duckduckgo.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon4.png" style="width:35px;height:35px;" alt="Map"></a>
+                <a href="https://www.baidu.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon5.png" style="width:35px;height:35px;" alt="Map"></a>
+                <a href="https://www.startpage.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon6.png" style="width:35px;height:35px;" alt="Map"></a>
+                <a href="https://search.brave.com/" target="_blank" class="icon-link"><img src="https://kennew0922-lgtm.github.io/web/icon7.png" style="width:35px;height:35px;" alt="Map"></a>
+            </div>
+
+            <!-- カレンダー -->
+            <iframe src="https://calendar.google.com/calendar/embed?src=kennew0922%40gmail.com&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0" 
+                    style="border:1px solid rgba(0,242,254,0.3); width:100%; height:380px;" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+
+</body>
+</html>
