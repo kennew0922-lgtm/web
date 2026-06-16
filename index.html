@@ -168,6 +168,25 @@
             background-color: #000;
         }
 
+        /* 🌸 実用ランチャー（カレンダー上部 2） */
+        .utility-launcher2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            margin-top: -15px;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 242, 254, 0.15);
+        }
+
+        /* カレンダーフィルター（既存） */
+        .right-content iframe {
+            filter: invert(90%) hue-rotate(180deg) brightness(1.1) contrast(0.9);
+            border-radius: 8px;
+            background-color: #000;
+        }
+
         /* --- 既存のギャラリー等のスタイルは維持 --- */
         .section-title {
             background: #000; color: #00f2fe; padding: 10px 20px;
@@ -330,6 +349,12 @@
             <button type="submit" class="search-button">SEARCH</button>
         </form>
     </div>
+
+             <!-- 🌸 Wikipedia　-->
+              <div class="section-title" id="section10">Wikipedia</div>
+            <div class="utility-launcher2">
+                <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/photo22.jpg" style="width:300px;height:35px;" alt="Weather"></a>
+            </div>
             
             <!-- 🌸 検索エンジン　-->
               <div class="section-title" id="section10">SEARCH ENGINE</div>
