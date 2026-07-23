@@ -221,6 +221,25 @@
         }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #345485; }
+
+        /* 🌸 隠し文字送りボタン（完全擬態バリアー） */
+       .secret-next-btn {
+       cursor: default;          /* 指マークに変わるのを防止（普通のカーソル） */
+       user-select: none;       /* テキスト選択で青く反転してバレるのを防ぐ */
+       display: inline-block;
+       transition: opacity 0.3s ease; 
+       }
+
+       /* ※もし「点滅」させてカーソル風の演出にしたい場合は以下を有効化してね！
+      .secret-next-btn {
+      animation: blinkCursor 1s infinite;
+      }
+      @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+      }
+      */
+
     </style>
 </head>
 <body>
@@ -369,16 +388,37 @@
                 <a href="https://search.brave.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon7.png" style="width:35px;height:35px;" alt="Map"></a>
             </div>
 
-<!-- リテラシー　-->
+<!-- リテラシー -->
 <div class="section-title">SYSTEM MESSAGE</div>
-            <div class="sao-message-box">
-                <div class="sao-label">DIGITAL LITERACV</div>
-                <div class="sao-message-content">Trust is a virtue, yet blind belief is a folly.
+<div class="sao-message-box">
+    <div class="sao-label">DIGITAL LITERACV</div>
+    <div class="sao-message-content">Trust is a virtue, yet blind belief is a folly.
 Words may mislead, and even AI can falter.
 Never settle for a single view; verify every shadow.
 Truth is a faint light, found only by those who keep seeking.
-_</div>
-            </div>
+<span class="secret-next-btn" onclick="nextText()">_</span></div>
+</div>
+
+<script>
+    // 🌸 隠しボタン（_）が押された時に発動する魔法
+    function nextText() {
+        console.log("SYSTEM: SECRET TOKEN ACTIVATED.");
+
+        // メッセージを表示する要素を取得
+        const messageContent = document.querySelector('.sao-message-content');
+
+        // 表示したい3行の秘密のテキスト
+        const secretText = 
+`),{"宇宙":"自知"})
+I recommend not letting such information lead you astray into hallucinations.
+Well, personally, I find the truth being more interesting and preferable...`;
+
+        // 🌸 テキストを一瞬で秘密の3行に置き換える！
+        if (messageContent) {
+            messageContent.textContent = secretText;
+        }
+    }
+</script>
 
 
 </body>
