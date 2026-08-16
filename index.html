@@ -2,6 +2,9 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <audio id="click-sound" preload="auto">
+    <source src="https://socrarius-tool.com/launcher/magic23.mp3" type="audio/mp3">
+    </audio>
     <title>Socrarius HP LINK</title>
     <style>
         body {
@@ -48,12 +51,12 @@
     letter-spacing: 2px;
 }
 
-        /* ✨ Google検索窓の魔法スタイル */
+/* ✨ Google検索窓の魔法スタイル */
 .google-search-container {
     margin-top: -10px;
     margin-bottom: -10px;
     padding: 10px;
-    background: rgba(0, 105, 217, 0.1);
+    background: rgba(0, 105, 217, 0.2);
     border: 1px solid rgba(0, 242, 254, 0.3);
     border-radius: 8px;
     backdrop-filter: blur(5px);
@@ -62,18 +65,24 @@
 .search-box {
     display: flex;
     gap: 8px;
+    align-items: center; /* 検索窓とボタンの上下中央をキレイに揃える魔法！ */
 }
 
 .search-input {
     flex: 1;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 242, 254, 0.5);
     border-radius: 4px;
-    padding: 8px 12px;
+    padding: 16px 12px;
     color: #e0f7ff;
-    font-family: 'Consolas', monospace;
+    /* ★ Chrome風＆可読性抜群のスッキリ細字フォントスタック！ */
+    font-family: 'Segoe UI', Arial, 'Meiryo', sans-serif;
+    font-weight: 300;   /* ★ 文字をすっきりスマートな「細字」に指定！ */
+    font-size: 15px;    /* ★ 細字に合わせて美しく見える絶妙サイズ！ */
+    letter-spacing: 0.5px; /* ★ 文字間隔をほんの少し広げてスマートに */
     outline: none;
     transition: 0.3s;
+    box-sizing: border-box;
 }
 
 .search-input:focus {
@@ -82,14 +91,18 @@
 }
 
 .search-button {
-    background: rgba(0, 105, 217, 0.4);
-    border: 1px solid #00f2fe;
-    color: #00f2fe;
+    background: rgba(0, 105, 217, 0.1);
+    border: 1px solid rgba(68, 200, 245, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     border-radius: 4px;
     padding: 0 15px;
+    height: 30px; /* ★SEARCHボタンは今のスマートなサイズ感を固定！ */
     cursor: pointer;
     transition: 0.3s;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-button:hover {
@@ -135,7 +148,7 @@
             gap: 15px;
         }
 
-        /* 🌸 お天気エリア（横配置） */
+        /* 🌸🌸 お天気エリア（横配置） 🌸🌸*/
         .weather-panel {
             background: rgba(0, 170, 255, 0.1);
             border: 1px solid rgba(0, 242, 254, 0.3);
@@ -188,6 +201,13 @@
             background-color: #000;
         }
 
+        .secret-next-btn {
+       cursor: default;         
+       user-select: none;      
+       display: inline-block;
+       transition: opacity 0.3s ease; 
+       }
+
         /* --- 既存のギャラリー等のスタイルは維持 --- */
         .section-title {
             background: #000; color: #00f2fe; padding: 10px 20px;
@@ -199,7 +219,7 @@
             gap: 15px; margin-bottom: 30px; padding: 15px;
             border: 1px solid rgba(0, 242, 254, 0.15); background: rgba(255, 255, 255, 0.02);
         }
-/* 🌸 アイコンリンクの基本設定と光の魔法 */
+        /* 🌸🌸🌸アイコンリンクの基本設定と光の魔法 🌸🌸🌸*/
         .icon-link img {
             width: 55px; height: 55px; object-fit: cover;
             border: 1px solid rgba(0, 242, 254, 0.3); 
@@ -208,7 +228,7 @@
             cursor: pointer;
         }
 
-        /* 🌸 マウスを乗せた時の反応（ホバー） */
+        /* 🌸🌸🌸 マウスを乗せた時の反応（ホバー） 🌸🌸🌸🌸*/
         .icon-link img:hover {
             transform: translateY(-2px); /* 若干上に浮き上がります 🌸 */
             border-color: #00f2fe; /* 縁の色をはっきりさせます 🌸 */
@@ -222,24 +242,6 @@
         }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #345485; }
-
-        /* 🌸 隠し文字送りボタン（完全擬態バリアー） */
-       .secret-next-btn {
-       cursor: default;          /* 指マークに変わるのを防止（普通のカーソル） */
-       user-select: none;       /* テキスト選択で青く反転してバレるのを防ぐ */
-       display: inline-block;
-       transition: opacity 0.3s ease; 
-       }
-
-       /* ※もし「点滅」させてカーソル風の演出にしたい場合は以下を有効化してね！
-      .secret-next-btn {
-      animation: blinkCursor 1s infinite;
-      }
-      @keyframes blinkCursor {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-      }
-      */
 
     </style>
 </head>
@@ -364,11 +366,12 @@
         <div class="right-content">
             <div class="section-title" id="section10">SEARCH ON GOOGLE</div>
             <div class="google-search-container">
-        <form action="https://www.google.com/search" method="get" target="_blank" class="search-box">
-            <input type="text" name="q" class="search-input" placeholder="Google Search..." required>
-            <button type="submit" class="search-button">SEARCH</button>
+        <!-- 🌸 Google検索フォーム -->
+        <form action="https://www.google.com/search" method="get" target="_blank" class="search-box" id="search-form">
+        <input type="text" name="q" class="search-input" placeholder="Google Search..." required>
+        <button type="submit" class="search-button">SEARCH</button>
         </form>
-    </div>
+         </div>
 
              <!-- 🌸 Wikipedia　-->
               <div class="section-title" id="section10">Wikipedia</div>
@@ -397,22 +400,43 @@
             </div>
 
 <script>
-    // 🌸 隠しボタン（_）が押された時に発動する魔法
     function nextText() {
         console.log("SYSTEM: SECRET TOKEN ACTIVATED.");
 
-        // メッセージを表示する要素を取得
         const messageContent = document.querySelector('.sao-message-content');
 
-        // 表示したい3行の秘密のテキスト
         const secretText = 
 `),{"宇宙":"自知"})\nI recommend not letting such information lead you astray into hallucinations.\nWell, personally, I find the truth being more interesting and preferable...`;
 
-        // 🌸 テキストを一瞬で秘密の3行に置き換える！
         if (messageContent) {
             messageContent.textContent = secretText;
         }
     }
+
+/* ✨ Google検索ボタン音再生の魔法！ */
+    const searchForm = document.getElementById('search-form');
+    const clickSound = document.getElementById('click-sound');
+
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            if (clickSound) {
+                clickSound.currentTime = 0; // 連続クリック対応
+                clickSound.play().catch(err => console.log("Audio play blocked:", err));
+            }
+        });
+    }
+
+    /* ✨ アイコンリンク等の効果音一括登録 */
+    const iconLinks = document.querySelectorAll('.icon-link, .shop-card, .utility-launcher a');
+
+    iconLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (clickSound) {
+                clickSound.currentTime = 0;
+                clickSound.play().catch(e => console.log("Audio play blocked:", e));
+            }
+        });
+    });
 </script>
 
 
