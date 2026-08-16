@@ -366,9 +366,9 @@
         <div class="right-content">
             <div class="section-title" id="section10">SEARCH ON GOOGLE</div>
             <div class="google-search-container">
-        <!-- 🌸 Google検索フォーム -->
+        <!-- 🌸 Google検索フォーム（requiredを削除！） -->
         <form action="https://www.google.com/search" method="get" target="_blank" class="search-box" id="search-form">
-        <input type="text" name="q" class="search-input" placeholder="Google Search..." required>
+        <input type="text" name="q" class="search-input" id="search-input" placeholder="Google Search...">
         <button type="submit" class="search-button">SEARCH</button>
         </form>
          </div>
@@ -413,18 +413,29 @@
         }
     }
 
-/* ✨ Google検索ボタン音再生の魔法！ */
-    const searchForm = document.getElementById('search-form');
-    const clickSound = document.getElementById('click-sound');
+/* ✨ Google検索ボタンのスマート制御魔法！ */
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const clickSound = document.getElementById('click-sound');
 
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-            if (clickSound) {
-                clickSound.currentTime = 0; // 連続クリック対応
-                clickSound.play().catch(err => console.log("Audio play blocked:", err));
-            }
-        });
-    }
+if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+        // 入力欄の値を取得（前後の余白をカット）
+        const query = searchInput ? searchInput.value.trim() : '';
+
+        // 空っぽ（未入力）の場合はイベントを完全キャンセル！
+        if (!query) {
+            e.preventDefault(); // 送信を阻止！
+            return; // 音も鳴らさず静かにスルー
+        }
+
+        // 文字が入っている時だけ音を鳴らして送信！
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(err => console.log("Audio play blocked:", err));
+        }
+    });
+}
 
     /* ✨ アイコンリンク等の効果音一括登録 */
     const iconLinks = document.querySelectorAll('.icon-link, .shop-card, .utility-launcher a');
