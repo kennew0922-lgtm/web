@@ -2,8 +2,11 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <audio id="click-magic" preload="auto">
+        <source src="https://socrarius-tool.com/launcher/magic20.mp3" type="audio/mp3">
+    </audio>
     <audio id="click-sound" preload="auto">
-    <source src="https://socrarius-tool.com/launcher/magic23.mp3" type="audio/mp3">
+        <source src="https://socrarius-tool.com/launcher/magic23.mp3" type="audio/mp3">
     </audio>
     <title>Socrarius HP LINK</title>
     <style>
@@ -18,97 +21,97 @@
         }
 
         /* ✨ SAO風システムメッセージBOX */
-.sao-message-box {
-    position: relative;
-    padding: 25px;
-    background: linear-gradient(135deg, rgba(0, 40, 80, 0.7) 0%, rgba(0, 10, 30, 0.8) 100%);
-    border: 1px solid #00f2fe;
-    border-radius: 0 20px 0 20px; /* SAOっぽい少し角を落としたデザイン */
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(0, 242, 254, 0.1);
-    backdrop-filter: blur(8px);
-    margin-top: 10px;
-}
+        .sao-message-box {
+            position: relative;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7) 0%, rgba(0, 10, 30, 0.8) 100%);
+            border: 1px solid #00f2fe;
+            border-radius: 0 20px 0 20px; /* SAOっぽい少し角を落としたデザイン */
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(0, 242, 254, 0.1);
+            backdrop-filter: blur(8px);
+            margin-top: 10px;
+        }
 
-.sao-message-content {
-    color: #e0f7ff;
-    font-family: "Sawarabi Mincho", "Yu Mincho", "MS Mincho", serif; /* 明朝体指定 */
-    font-size: 14px;
-    line-height: 2;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
-    white-space: pre-wrap; /* 改行を有効にする */
-}
+        .sao-message-content {
+            color: #e0f7ff;
+            font-family: "Sawarabi Mincho", "Yu Mincho", "MS Mincho", serif; /* 明朝体指定 */
+            font-size: 14px;
+            line-height: 2;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
+            white-space: pre-wrap; /* 改行を有効にする */
+        }
 
-.sao-label {
-    position: absolute;
-    top: -12px;
-    left: 20px;
-    background: #000;
-    color: #00f2fe;
-    padding: 2px 10px;
-    font-size: 10px;
-    border: 1px solid #00f2fe;
-    letter-spacing: 2px;
-}
+        .sao-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #000;
+            color: #00f2fe;
+            padding: 2px 10px;
+            font-size: 10px;
+            border: 1px solid #00f2fe;
+            letter-spacing: 2px;
+        }
 
-/* ✨ Google検索窓の魔法スタイル */
-.google-search-container {
-    margin-top: -10px;
-    margin-bottom: -10px;
-    padding: 10px;
-    background: rgba(0, 105, 217, 0.2);
-    border: 1px solid rgba(0, 242, 254, 0.3);
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
-}
+        /* ✨ Google検索窓の魔法スタイル */
+        .google-search-container {
+            margin-top: -10px;
+            margin-bottom: -10px;
+            padding: 10px;
+            background: rgba(0, 105, 217, 0.2);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
 
-.search-box {
-    display: flex;
-    gap: 8px;
-    align-items: center; /* 検索窓とボタンの上下中央をキレイに揃える魔法！ */
-}
+        .search-box {
+            display: flex;
+            gap: 8px;
+            align-items: center; /* 検索窓とボタンの上下中央をキレイに揃える魔法！ */
+        }
 
-.search-input {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 242, 254, 0.5);
-    border-radius: 4px;
-    padding: 10px 12px;
-    color: #e0f7ff;
-    /* ★ Chrome風＆可読性抜群のスッキリ細字フォントスタック！ */
-    font-family: 'Segoe UI', Arial, 'Meiryo', sans-serif;
-    font-weight: 300;   /* ★ 文字をすっきりスマートな「細字」に指定！ */
-    font-size: 15px;    /* ★ 細字に合わせて美しく見える絶妙サイズ！ */
-    letter-spacing: 0.5px; /* ★ 文字間隔をほんの少し広げてスマートに */
-    outline: none;
-    transition: 0.3s;
-    box-sizing: border-box;
-}
+        .search-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 242, 254, 0.5);
+            border-radius: 4px;
+            padding: 10px 12px;
+            color: #e0f7ff;
+            /* ★ Chrome風＆可読性抜群のスッキリ細字フォントスタック！ */
+            font-family: 'Segoe UI', Arial, 'Meiryo', sans-serif;
+            font-weight: 300;   /* ★ 文字をすっきりスマートな「細字」に指定！ */
+            font-size: 15px;    /* ★ 細字に合わせて美しく見える絶妙サイズ！ */
+            letter-spacing: 0.5px; /* ★ 文字間隔をほんの少し広げてスマートに */
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
 
-.search-input:focus {
-    border-color: #00f2fe;
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-}
+        .search-input:focus {
+            border-color: #00f2fe;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+        }
 
-.search-button {
-    background: rgba(0, 105, 217, 0.1);
-    border: 1px solid rgba(68, 200, 245, 0.5);
-    color: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
-    padding: 0 15px;
-    height: 30px; /* ★SEARCHボタンは今のスマートなサイズ感を固定！ */
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .search-button {
+            background: rgba(0, 105, 217, 0.1);
+            border: 1px solid rgba(68, 200, 245, 0.5);
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 4px;
+            padding: 0 15px;
+            height: 30px; /* ★SEARCHボタンは今のスマートなサイズ感を固定！ */
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.search-button:hover {
-    background: rgba(0, 242, 254, 0.2);
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
-}
+        .search-button:hover {
+            background: rgba(0, 242, 254, 0.2);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+        }
 
         /* 🌸 上部固定バナー */
         .system-banner {
@@ -194,19 +197,12 @@
             border: 1px solid rgba(0, 242, 254, 0.15);
         }
 
-        /* カレンダーフィルター（既存） */
-        .right-content iframe {
-            filter: invert(90%) hue-rotate(180deg) brightness(1.1) contrast(0.9);
-            border-radius: 8px;
-            background-color: #000;
-        }
-
         .secret-next-btn {
-       cursor: default;         
-       user-select: none;      
-       display: inline-block;
-       transition: opacity 0.3s ease; 
-       }
+            cursor: default;         
+            user-select: none;      
+            display: inline-block;
+            transition: opacity 0.3s ease; 
+        }
 
         /* --- 既存のギャラリー等のスタイルは維持 --- */
         .section-title {
@@ -276,7 +272,7 @@
                 </a>
                 <a href="https://www.threads.com/" target="_blank" class="icon-link">
                     <img src="https://socrarius-tool.com/web/photo2.jpg">
-                </a>               
+                </a>                
             </div> 
 
             <!-- IMAGE AND VIDEO セクション -->
@@ -360,44 +356,53 @@
                 </a>
             </div>
 
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+
         </div>
+
 
         <!-- 右側：Google検索など -->
         <div class="right-content">
             <div class="section-title" id="section10">SEARCH ON GOOGLE</div>
             <div class="google-search-container">
-        <!-- 🌸 Google検索フォーム（requiredを削除！） -->
-        <form action="https://www.google.com/search" method="get" target="_blank" class="search-box" id="search-form">
-        <input type="text" name="q" class="search-input" id="search-input" placeholder="Google Search...">
-        <button type="submit" class="search-button">SEARCH</button>
-        </form>
-         </div>
+                <!-- 🌸 Google検索フォーム -->
+                <form action="https://www.google.com/search" method="get" target="_blank" class="search-box" id="search-form">
+                    <input type="text" name="q" class="search-input" id="search-input" placeholder="Google Search...">
+                    <button type="submit" class="search-button">SEARCH</button>
+                </form>
+            </div>
 
-             <!-- 🌸 Wikipedia　-->
-              <div class="section-title" id="section10">Wikipedia</div>
+            <!-- 🌸 Wikipedia -->
+            <div class="section-title">Wikipedia</div>
             <div class="utility-launcher2">
-                <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/photo22.png" style="width:480px;height:35px;" alt="Weather"></a>
+                <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/photo22.png" style="width:480px;height:35px;" alt="Wikipedia"></a>
             </div>
             
-            <!-- 🌸 検索エンジン　-->
-              <div class="section-title" id="section10">SEARCH ENGINE</div>
+            <!-- 🌸 検索エンジン -->
+            <div class="section-title">SEARCH ENGINE</div>
             <div class="utility-launcher">
-                <!-- ここに検索エンジン　アイコンを並べます🌸 -->
-                <a href="https://www.google.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon1.png" style="width:35px;height:35px;" alt="Weather"></a>
-                <a href="https://www.bing.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon2.png" style="width:35px;height:35px;" alt="Travel"></a>
-                <a href="https://search.yahoo.co.jp/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon3.png" style="width:35px;height:35px;" alt="Map"></a>
-                <a href="https://duckduckgo.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon4.png" style="width:35px;height:35px;" alt="Map"></a>
-                <a href="https://www.baidu.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon5.png" style="width:35px;height:35px;" alt="Map"></a>
-                <a href="https://www.startpage.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon6.png" style="width:35px;height:35px;" alt="Map"></a>
-                <a href="https://search.brave.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon7.png" style="width:35px;height:35px;" alt="Map"></a>
+                <a href="https://www.google.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon1.png" style="width:35px;height:35px;" alt="Google"></a>
+                <a href="https://www.bing.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon2.png" style="width:35px;height:35px;" alt="Bing"></a>
+                <a href="https://search.yahoo.co.jp/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon3.png" style="width:35px;height:35px;" alt="Yahoo"></a>
+                <a href="https://duckduckgo.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon4.png" style="width:35px;height:35px;" alt="DuckDuckGo"></a>
+                <a href="https://www.baidu.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon5.png" style="width:35px;height:35px;" alt="Baidu"></a>
+                <a href="https://www.startpage.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon6.png" style="width:35px;height:35px;" alt="Startpage"></a>
+                <a href="https://search.brave.com/" target="_blank" class="icon-link"><img src="https://socrarius-tool.com/web/icon7.png" style="width:35px;height:35px;" alt="Brave"></a>
             </div>
 
             <!-- リテラシー -->
             <div class="section-title">SYSTEM MESSAGE</div>
             <div class="sao-message-box">
-            <div class="sao-label">DIGITAL LITERACV</div>
-            <div class="sao-message-content">Trust is a virtue, yet blind belief is a folly.<br>Words may mislead, and even AI can falter.<br>Never settle for a single view; verify every shadow.<br>Truth is a faint light, found only by those who keep seeking.<br><span class="secret-next-btn" onclick="nextText()">_</span></div>
+                <div class="sao-label">DIGITAL LITERACV</div>
+                <div class="sao-message-content">Trust is a virtue, yet blind belief is a folly.<br>Words may mislead, and even AI can falter.<br>Never settle for a single view; verify every shadow.<br>Truth is a faint light, found only by those who keep seeking.<br><span class="secret-next-btn" onclick="nextText()">_</span></div>
             </div>
+        </div>
+    </div>
 
 <script>
     function nextText() {
@@ -405,51 +410,49 @@
 
         const messageContent = document.querySelector('.sao-message-content');
 
-        const secretText = 
-`),{"宇宙":"自知"})\nI recommend not letting such information lead you astray into hallucinations.\nWell, personally, I find the truth being more interesting and preferable...`;
+        const secretText = `),{"宇宙":"自知"})\nI recommend not letting such information lead you astray into hallucinations.\nWell, personally, I find the truth being more interesting and preferable...`;
 
         if (messageContent) {
             messageContent.textContent = secretText;
         }
     }
 
-/* ✨ Google検索ボタンのスマート制御魔法！ */
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const clickSound = document.getElementById('click-sound');
+    /* ✨ Google検索ボタン専用の特別音（magic23.mp3）制御！ */
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const clickSound = document.getElementById('click-sound'); // magic23.mp3
 
-if (searchForm) {
-    searchForm.addEventListener('submit', function(e) {
-        // 入力欄の値を取得（前後の余白をカット）
-        const query = searchInput ? searchInput.value.trim() : '';
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            const query = searchInput ? searchInput.value.trim() : '';
 
-        // 空っぽ（未入力）の場合はイベントを完全キャンセル！
-        if (!query) {
-            e.preventDefault(); // 送信を阻止！
-            return; // 音も鳴らさず静かにスルー
-        }
+            // 未入力時は送信キャンセル＆音も鳴らさない
+            if (!query) {
+                e.preventDefault();
+                return;
+            }
 
-        // 文字が入っている時だけ音を鳴らして送信！
-        if (clickSound) {
-            clickSound.currentTime = 0;
-            clickSound.play().catch(err => console.log("Audio play blocked:", err));
-        }
-    });
-}
-
-    /* ✨ アイコンリンク等の効果音一括登録 */
-    const iconLinks = document.querySelectorAll('.icon-link, .shop-card, .utility-launcher a');
-
-    iconLinks.forEach(link => {
-        link.addEventListener('click', () => {
+            // Google検索時だけ特別音（magic23.mp3）を発動！
             if (clickSound) {
                 clickSound.currentTime = 0;
-                clickSound.play().catch(e => console.log("Audio play blocked:", e));
+                clickSound.play().catch(err => console.log("Audio play blocked:", err));
+            }
+        });
+    }
+
+    /* ✨ アイコンリンク等の通常シュイン音（magic20.mp3）一括登録！ */
+    const clickMagic = document.getElementById('click-magic'); // magic20.mp3
+    const magicLinks = document.querySelectorAll('.icon-link');
+
+    magicLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (clickMagic) {
+                clickMagic.currentTime = 0; // 連打対応
+                clickMagic.play().catch(e => console.log("Audio play blocked:", e));
             }
         });
     });
 </script>
-
 
 </body>
 </html>
